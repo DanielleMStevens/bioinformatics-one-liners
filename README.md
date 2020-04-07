@@ -6,6 +6,18 @@ I also added some of my own tricks
 
 05/21/2015.
 
+#### loop through contig files and change from multi line to one line
+#fix file with multiple line
+```bash
+for file in *.fasta;
+	do;
+	echo $file
+	grep ">" $file -v > temp_file.fasta
+	echo ">""$file"  > first_line.fasta
+	cat temp_file.fasta >> first_line.fasta
+	mv first_line.fasta $file
+done;
+```
 
 
 ####  get the sequences length distribution form a fastq file using awk
